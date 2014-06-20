@@ -1,0 +1,30 @@
+{
+	"name": "<%= nameSlug %>",
+	"description": "<%= description %>",
+	"version": "<%= version %>",
+
+	"dependencies": {
+		"express": "^4.4.3"
+	},
+
+	"devDependencies": {
+		"gulp": "~3.8.0",
+		"gulp-concat": "~2.2.0",
+		"gulp-sass": "~0.7.2",
+		"gulp-templatecache": "~0.0.2",
+		"gulp-uglify": "~0.3.0",
+		"gulp-util": "^2.2.17",
+		"gulp-rename": "^1.2.0",
+		"gulp-wrap": "^0.3.0",
+		"multipipe": "^0.1.1",
+		"karma": "~0.12.16",
+		"karma-coverage": "^0.2.4",
+		"karma-jasmine": "^0.1.5",
+		"karma-phantomjs-launcher": "^0.1.4"
+	},
+
+	"scripts": {
+		"test": "./node_modules/karma/bin/karma start test/karma.conf.js --single-run",
+		"start": "server.js"
+	}
+}

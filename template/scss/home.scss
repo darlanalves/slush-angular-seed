@@ -1,0 +1,40 @@
+$base-background: #ececec;
+$base-color: #00aec8;
+
+.home {
+	h1 {
+		position: relative;
+		font-size: 2rem;
+		border-bottom: 1px solid $base-background;
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: 2;
+			left: 0;
+			top: calc(100% - 5px);
+			height: 5px;
+			width: 50px;
+			background: $base-color;
+		}
+	}
+
+	li {
+		list-style-type: none;
+
+		&:before {
+			display: inline-block;
+			content: "•";
+			font-size: 2rem;
+			font-weight: bold;
+			color: $base-color;
+			padding-right: 1rem;
+		}
+	}
+
+	a {
+		color: $base-color;
+		font-weight: bold;
+	}
+}
