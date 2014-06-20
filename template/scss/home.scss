@@ -2,9 +2,14 @@ $base-background: #ececec;
 $base-color: #00aec8;
 
 .home {
+	padding: 1em;
+	font-size: 2rem;
+
 	h1 {
 		position: relative;
-		font-size: 2rem;
+		font-size: 3rem;
+		padding-bottom: 2rem;
+		margin: 0 0 2rem 0;
 		border-bottom: 1px solid $base-background;
 
 		&:before {
@@ -36,5 +41,13 @@ $base-color: #00aec8;
 	a {
 		color: $base-color;
 		font-weight: bold;
+	}
+
+	footer {
+		padding: 1rem;
+		margin-top: 2rem;
+		color: #999;
+		text-align: center;
+		border-top: 1px solid $base-background;
 	}
 }

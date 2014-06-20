@@ -11,6 +11,7 @@ var gulp = require('gulp'),
 	_ = require('underscore.string'),
 	inquirer = require('inquirer'),
 	fs = require('fs'),
+	spawn = require('child_process').spawn,
 	path = require('path');
 
 gulp.task('default', function(exit) {
@@ -70,12 +71,17 @@ gulp.task('default', function(exit) {
 				async.series([
 
 					function(callback) {
+						util.log('Making package.json');
+						savePackageJson(json, callback);
+					},
+					function(callback) {
 						util.log('Copying files');
 						copyTemplateFiles(config, callback);
 					},
+
 					function(callback) {
-						util.log('Making package.json');
-						savePackageJson(json, callback);
+						util.log('Installing modules');
+						runNpm(callback);
 					},
 					function(callback) {
 						util.log('Building assets');
@@ -104,7 +110,7 @@ gulp.task('default', function(exit) {
 	}
 
 	function savePackageJson(packageJson, callback) {
-		fs.writeFile('./package.json', JSON.stringify(packageJson), function(err) {
+		fs.writeFile('./package.json', JSON.stringify(packageJson, null, '\t'), function(err) {
 			callback(err, true);
 		});
 	}
@@ -119,17 +125,38 @@ gulp.task('default', function(exit) {
 				}
 			}),
 			conflict('./'),
-			gulp.dest('./'),
-			install()
+			gulp.dest('./')
 		);
 
 		pipe.on('end', function() {
+			util.log('Files copied');
 			callback(null, true);
+		});
+
+		pipe.on('data', function(data) {
+			return data;
 		});
 
 		pipe.on('error', function(err) {
 			callback(err, null);
-		})
+		});
+	}
+
+	function runNpm(callback) {
+		var pipe = multipipe(gulp.src('./package.json'), install());
+
+		pipe.on('end', function() {
+			util.log('Modules installed');
+			callback(null, true);
+		});
+
+		pipe.on('data', function(data) {
+			return data;
+		});
+
+		pipe.on('error', function(err) {
+			callback(err, null);
+		});
 	}
 
 	function makePackageJson(answers) {
