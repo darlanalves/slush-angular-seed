@@ -1,7 +1,7 @@
 {
 	"name": "slush-angular-seed",
-	"version": "0.0.1",
-	"description": "Slush generator for AngularJS simple experiments",
+	"version": "0.1.0",
+	"description": "Slush generator for AngularJS small projects",
 	"main": "slushfile.js",
 	"repository": {
 		"type": "git",
