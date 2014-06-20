@@ -97,6 +97,30 @@ gulp.task('default', function(exit) {
 	}
 
 	function getAnswers(prompts, callback) {
+		if (fs.existsSync('./package.json')) {
+			var projectJson = fs.readFileSync('./package.json');
+
+			try {
+				projectJson = JSON.parse(projectJson);
+				prompts.forEach(function(o) {
+					var name = o.name,
+						value = projectJson[o.name];
+
+					if (!(name in projectJson) || value === undefined) return;
+					console.log(name, value);
+
+					// special case: author is object
+					if (name === 'author' && typeof value === 'object') {
+						value = value.name + ' <' + value.email + '>';
+					}
+
+					o.default = value;
+				});
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
 		inquirer.prompt(prompts,
 			function(answers) {
 				if (!answers.name) {
