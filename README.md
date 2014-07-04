@@ -3,7 +3,7 @@
 ## Wat?
 
 ```
-npm install -g slush
+npm install -g slush slush-angular-seed
 mkdir angular-seed
 cd angular-seed
 slush angular-seed

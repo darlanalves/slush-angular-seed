@@ -1,33 +1,33 @@
 {
-  "name": "slush-angular-seed",
-  "version": "0.1.2",
-  "description": "Slush generator for AngularJS small projects",
-  "main": "slushfile.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/darlanalves/slush-angular-lab"
-  },
-  "keywords": [
-    "slushgenerator",
-    "angular",
-    "gulp"
-  ],
-  "author": "Darlan Alves <darlan@moovia.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/darlanalves/slush-angular-lab/issues"
-  },
-  "homepage": "https://github.com/darlanalves/slush-angular-lab",
-  "dependencies": {
-    "gulp-rename": "1.2.0",
-    "multipipe": "0.1.1",
-    "underscore.string": "2.3.3",
-    "gulp-install": "0.1.5",
-    "gulp-template": "0.1.1",
-    "gulp-conflict": "0.1.2",
-    "inquirer": "0.5.1",
-    "gulp": "3.8.1",
-    "async": "^0.9.0",
-    "gulp-util": "^2.2.17"
-  }
+	"name": "slush-angular-seed",
+	"version": "0.1.3",
+	"description": "Slush generator for AngularJS small projects",
+	"main": "slushfile.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/darlanalves/slush-angular-lab"
+	},
+	"keywords": [
+		"slushgenerator",
+		"angular",
+		"gulp"
+	],
+	"author": "Darlan Alves <darlan@moovia.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/darlanalves/slush-angular-lab/issues"
+	},
+	"homepage": "https://github.com/darlanalves/slush-angular-lab",
+	"dependencies": {
+		"gulp-rename": "1.2.0",
+		"multipipe": "0.1.1",
+		"underscore.string": "2.3.3",
+		"gulp-install": "0.1.5",
+		"gulp-template": "0.1.1",
+		"gulp-conflict": "0.1.2",
+		"inquirer": "0.5.1",
+		"gulp": "3.8.1",
+		"async": "^0.9.0",
+		"gulp-util": "^2.2.17"
+	}
 }
