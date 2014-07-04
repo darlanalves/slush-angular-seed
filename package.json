@@ -1,23 +1,26 @@
 {
 	"name": "slush-angular-seed",
 	"version": "0.1.3",
-	"description": "Slush generator for AngularJS small projects",
+	"description": "Slush generator for AngularJS small projects and experiments",
 	"main": "slushfile.js",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/darlanalves/slush-angular-lab"
+		"url": "git://github.com/darlanalves/slush-angular-seed"
 	},
 	"keywords": [
 		"slushgenerator",
 		"angular",
 		"gulp"
 	],
-	"author": "Darlan Alves <darlan@moovia.com>",
+	"author": {
+          "name": "Darlan Alves",
+          "email": "darlan@moovia.com>"
+	},
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/darlanalves/slush-angular-lab/issues"
+		"url": "https://github.com/darlanalves/slush-angular-seed/issues"
 	},
-	"homepage": "https://github.com/darlanalves/slush-angular-lab",
+	"homepage": "https://github.com/darlanalves/slush-angular-seed",
 	"dependencies": {
 		"gulp-rename": "1.2.0",
 		"multipipe": "0.1.1",
