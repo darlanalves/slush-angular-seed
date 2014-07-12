@@ -13,8 +13,8 @@
 		"gulp"
 	],
 	"author": {
-          "name": "Darlan Alves",
-          "email": "darlan@moovia.com>"
+		"name": "Darlan Alves",
+		"email": "darlan@moovia.com"
 	},
 	"license": "ISC",
 	"bugs": {
