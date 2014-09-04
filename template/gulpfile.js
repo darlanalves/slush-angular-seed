@@ -82,23 +82,13 @@ gulp.task('server', function() {
 	require('./server');
 });
 
-gulp.task('test', function() {
-	var karma = spawn('./node_modules/karma/bin/karma', ['start', 'test/karma.conf.js']);
-
-	karma.stderr.on('data', function(data) {
-		console.log('' + data);
-	});
-
-	karma.stdout.on('data', function(data) {
-		console.log('' + data);
-	});
-
-	karma.on('close', function(code) {
-		if (code !== 0) {
-			console.log('Karma exited with code ' + code);
-		}
-	});
-})
+// @see https://github.com/karma-runner/gulp-karma#do-we-need-a-plugin
+gulp.task('test', function(done) {
+	karma.start({
+		configFile: __dirname + '/test/karma.conf.js',
+		singleRun: true
+	}, done);
+});
 
 gulp.task('watch', function() {
 	gulp.watch('src/**/*.js', ['min']);
