@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 	pipeline = require('multipipe'),
 	colors = util.colors,
 	log = util.log,
-	spawn = require('child_process').spawn,
+	livereload = require('gulp-livereload'),
 
 	// NOTE: don't join the template strings, it will break Slush!
 	wrapper = '(function(undefined){\n\n<' + '%= contents %>\n}());';
@@ -78,7 +78,7 @@ gulp.task('views', function() {
 	return pipe;
 });
 
-gulp.task('server', function() {
+gulp.task('serve', function() {
 	require('./server');
 });
 
@@ -91,10 +91,16 @@ gulp.task('test', function(done) {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('src/**/*.js', ['min']);
-	gulp.watch('scss/**/*.scss', ['sass']);
-	gulp.watch('views/**/*.html', ['views']);
-	gulp.watch('mocks/**/*.js', ['mocks']);
+	livereload.listen();
+
+	function handleChanges(stream) {
+		stream.on('change', livereload.changed);
+	}
+
+	handleChanges(gulp.watch('src/**/*.js', ['min']));
+	handleChanges(gulp.watch('scss/**/*.scss', ['sass']));
+	handleChanges(gulp.watch('views/**/*.html', ['views']));
+	handleChanges(gulp.watch('mocks/**/*.js', ['mocks']));
 });
 
 gulp.task('build', ['min', 'sass', 'mocks', 'views'])

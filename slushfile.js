@@ -207,7 +207,8 @@ gulp.task('default', function(exit) {
 					'karma': '~0.12.16',
 					'karma-coverage': '^0.2.4',
 					'karma-jasmine': '^0.1.5',
-					'karma-phantomjs-launcher': '^0.1.4'
+					'karma-phantomjs-launcher': '^0.1.4',
+					'gulp-livereload': '^2.1.0'
 				},
 
 				scripts: {
