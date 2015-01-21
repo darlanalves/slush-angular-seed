@@ -10,6 +10,7 @@ var gulp = require('gulp'),
 	colors = util.colors,
 	log = util.log,
 	livereload = require('gulp-livereload'),
+	karma = require('karma').server,
 
 	// NOTE: don't join the template strings, it will break Slush!
 	wrapper = '(function(undefined){\n\n<' + '%= contents %>\n}());';
@@ -87,6 +88,13 @@ gulp.task('test', function(done) {
 	karma.start({
 		configFile: __dirname + '/test/karma.conf.js',
 		singleRun: true
+	}, done);
+});
+
+gulp.task('tdd', function(done) {
+	karma.start({
+		configFile: __dirname + '/test/karma.conf.js',
+		singleRun: false
 	}, done);
 });
 
